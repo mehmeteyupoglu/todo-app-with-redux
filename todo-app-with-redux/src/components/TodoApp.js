@@ -22,12 +22,22 @@ class TodoApp extends Component {
             todos : [...this.state.todos, newTodo]
         })
     }
-    
+
+    toggleTodo = (id) => {
+        this.setState({
+            todos: this.state.todos.map(todo => {
+                if (todo.id === id) {
+                    return {...todo, completed: !todo.completed}
+                }
+                return todo
+            })
+        })
+    }
     render() {
         return (
             <div>
                 <TodoAppHeader addTodo={this.addTodo}/> 
-                <TodoAppList todos={this.state.todos}/>
+                <TodoAppList todos={this.state.todos} toggleTodo={this.toggleTodo} />
             </div>
         );
     }

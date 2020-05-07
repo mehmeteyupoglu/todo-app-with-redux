@@ -5,7 +5,13 @@ const TodoAppList = (props) => {
     console.log("TodoAppList Props: ", {props})
     return (
         <div>
-            <TodoAppListItem todos={props.todos}/>
+
+        {
+            props.todos.map(todo => {
+                return <TodoAppListItem key={todo.id} {...todo} toggleTodo={props.toggleTodo}/>
+            })
+        }
+            
         </div>
     );
 }

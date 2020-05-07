@@ -1,13 +1,17 @@
 
 import React from 'react';
 
-const TodoAppListItem = (props) => {
-    console.log("TodoAppListItem Props ", {props})
+const TodoAppListItem = ({content, id, completed, toggleTodo}) => {
     return (
-        <div>
-            {
-                props.todos.map(item => item.content)
-            }
+        <div 
+        style ={{textDecoration: completed ? "line-through" : "initial"}}
+        >
+
+        <p
+        onClick={() => toggleTodo(id)}> 
+        {content} 
+        </p>
+
         </div>
     );
 }
