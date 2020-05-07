@@ -5,7 +5,7 @@ class TodoAppAdd extends Component {
         super(props)
     
         this.state = {
-             value : ""
+             value : ''
         }
     }
     
@@ -14,27 +14,23 @@ class TodoAppAdd extends Component {
             <div>
                 <form onSubmit={(e) => {
                     e.preventDefault(); 
-                    const newContent = this.state.value; 
+                    const newContent =  this.state.value;
                     this.props.addTodo(newContent)
                 }}>
-
-                <input 
-                type="text" 
-                value={this.state.value}
-                placeholder="Todo Giriniz"
-                onChange={(e) => {
-                    this.setState({
-                        value: e.target.value
-                    })
-                }}
-                />
-                <button type="submit">Todo Ekle</button>
-            </form>
+                    <input 
+                    type = 'text'
+                    placeholder = 'Todo Giriniz'
+                    value =  {this.state.value}
+                    onChange = {(e) => {
+                        this.setState({
+                            value : e.target.value
+                        })
+                    }}/>
+                    <button type="submit">Ekle</button>
+                </form>
             </div>
         );
     }
 }
 
 export default TodoAppAdd;
-
-

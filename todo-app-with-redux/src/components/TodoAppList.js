@@ -1,7 +1,8 @@
 import React from 'react';
-import TodoAppListItem from "./TodoAppListItem"
+import TodoAppListItem from "./TodoAppListItem"; 
 
 const TodoAppList = (props) => {
+    console.log("TodoAppList Props: ", {props})
     return (
         <div>
             <TodoAppListItem todos={props.todos}/>
@@ -10,3 +11,4 @@ const TodoAppList = (props) => {
 }
 
 export default TodoAppList;
+

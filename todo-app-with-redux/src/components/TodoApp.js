@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import TodoAppHeader from "./TodoAppHeader"
+import React, { Component } from 'react';
+import TodoAppHeader from "./TodoAppHeader"; 
 import TodoAppList from "./TodoAppList"
 
 class TodoApp extends Component {
@@ -13,10 +13,11 @@ class TodoApp extends Component {
 
     addTodo = (content) => {
         const newTodo = {
-            id: Math.random(), 
             content, 
-            completed: false
+            id: Math.random(), 
+            completed : false
         }
+
         this.setState({
             todos : [...this.state.todos, newTodo]
         })
@@ -25,7 +26,7 @@ class TodoApp extends Component {
     render() {
         return (
             <div>
-                <TodoAppHeader addTodo={this.addTodo}/>
+                <TodoAppHeader addTodo={this.addTodo}/> 
                 <TodoAppList todos={this.state.todos}/>
             </div>
         );
