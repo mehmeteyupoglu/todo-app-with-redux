@@ -1,14 +1,19 @@
 import React from 'react';
 import TodoAppListItem from "./TodoAppListItem"; 
+import {connect} from "react-redux"
 
 const TodoAppList = (props) => {
-    console.log("TodoAppList Props: ", {props})
+    console.log('Props of todoAppList is: ', {props})
     return (
         <div>
 
         {
             props.todos.map(todo => {
-                return <TodoAppListItem key={todo.id} {...todo} toggleTodo={props.toggleTodo}/>
+                return <TodoAppListItem 
+                key={todo.id} 
+                {...todo} 
+                
+                />
             })
         }
             
@@ -16,5 +21,13 @@ const TodoAppList = (props) => {
     );
 }
 
-export default TodoAppList;
+
+
+const mapStateToProps = (state) => {
+    return {
+        todos : state.todoReducer
+    }
+}
+
+export default connect(mapStateToProps)(TodoAppList);
 
