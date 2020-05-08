@@ -22,3 +22,18 @@ export const todoReducer = (state = [], action) =>  {
     }
 }
 
+export const notificationReducer  = (state = {showNotification : false, notificationText : ""}, action) => {
+    switch(action.type) {
+        case "SHOW_NOTIFICATION": 
+            return {
+                ...state, showNotification: true, notificationText: action.payload
+            }
+        case "HIDE_NOTIFICATION": 
+            return {
+                ...state, showNotification: false, notificationText: ""
+            }
+        default: 
+            return state
+    }
+}
+

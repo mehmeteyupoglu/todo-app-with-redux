@@ -1,8 +1,12 @@
-import {combineReducers, createStore} from "redux"; 
-import {todoReducer} from "./reducer"
+import {combineReducers, createStore, applyMiddleware} from "redux"; 
+import {todoReducer, notificationReducer} from "./reducer"
+import thunk from "redux-thunk";
 
-const allReducers = combineReducers({todoReducer})
 
-const myStore = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const allReducers = combineReducers({
+    todoReducer, notificationReducer
+})
+
+const myStore = createStore(allReducers,applyMiddleware(thunk))
 
 export default myStore

@@ -1,7 +1,18 @@
-export const addTodo = (content) => {
-    return {
-        type: "ADD_TODO", 
-        payload: content
+export const addTodo = (content, id) => {
+    return (dispatch) => {
+        dispatch({
+            type: "ADD_TODO", 
+            payload: content
+        })
+        dispatch({
+            type: "SHOW_NOTIFICATION",
+            payload: `${content} eklendi`
+        })
+        setTimeout(() => {
+            dispatch({
+                type: "HIDE_NOTIFICATION"
+            })
+        }, 2000)
     }
 }
 
